@@ -1,0 +1,352 @@
+/* =========================================
+   MatAI-DU Landing Page — Ambient Professional
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Ambient Blue-Green Palette */
+  --bg-page: #F3F6F8;
+  --bg-surface: #FAFBFC;
+  --bg-card: #FFFFFF;
+  --bg-gradient: radial-gradient(100% 120% at 50% 0%, #F8FAFB 0%, #EEF2F4 100%);
+
+  --text-primary: #1A2A30;
+  --text-secondary: #4A5D66;
+  --text-muted: #7A8D96;
+
+  --accent: #4A9092;
+  /* Muted Teal */
+  --accent-hover: #367072;
+  --accent-light: #E9F3F3;
+  /* Soft Seafoam */
+  --accent-border: rgba(74, 144, 146, 0.18);
+
+  --border: #D6E0E4;
+  --border-soft: #E9EEF1;
+
+  /* Shadows & Depth */
+  --shadow-sm: 0 1px 3px rgba(26, 42, 48, 0.04), 0 1px 2px rgba(26, 42, 48, 0.02);
+  --shadow-md: 0 6px 18px rgba(26, 42, 48, 0.06), 0 3px 8px rgba(26, 42, 48, 0.03);
+  --shadow-hover: 0 10px 26px rgba(26, 42, 48, 0.08), 0 4px 12px rgba(26, 42, 48, 0.04);
+
+  /* Layout & Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --radius-md: 5px;
+  /* Reduced roundedness */
+  --radius-lg: 7px;
+  /* Reduced roundedness */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
+  background: var(--bg-page);
+  background-image: var(--bg-gradient);
+  line-height: 1.65;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+header {
+  background: linear-gradient(180deg, var(--bg-surface) 0%, #F2F5F7 100%);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-xl) var(--space-md);
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+}
+
+/* Ambient top accent line */
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--accent) 40%, var(--accent) 60%, transparent 100%);
+  opacity: 0.65;
+}
+
+.header-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  margin-bottom: var(--space-sm);
+}
+
+.header-desc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 660px;
+  margin: 0 auto var(--space-md);
+  line-height: 1.6;
+}
+
+.header-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-light);
+  border: 1px solid var(--accent-border);
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  letter-spacing: 0.01em;
+  transition: var(--transition);
+}
+
+.header-hint::before {
+  content: "●";
+  font-size: 0.5rem;
+  color: var(--accent);
+}
+
+.header-hint:hover {
+  background: var(--bg-surface);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   MAIN & PROJECT CARD
+   ========================================= */
+main {
+  flex: 1;
+  padding: var(--space-xl) var(--space-md);
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.project-row {
+  width: 100%;
+  max-width: 840px;
+}
+
+.project-card {
+  display: block;
+  background: linear-gradient(175deg, var(--bg-card) 0%, #F8FAFB 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+/* Left accent indicator */
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+  border-color: var(--accent-hover);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.project-card:hover::before,
+.project-card:focus-visible::before {
+  transform: scaleY(1);
+}
+
+/* Arrow cue on hover */
+.project-card::after {
+  content: "↗";
+  position: absolute;
+  bottom: var(--space-lg);
+  right: var(--space-lg);
+  font-size: 1.15rem;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: var(--transition);
+}
+
+.project-card:hover::after,
+.project-card:focus-visible::after {
+  opacity: 0.75;
+  transform: translateX(0);
+}
+
+.card-top {
+  margin-bottom: var(--space-md);
+}
+
+.project-title {
+  font-size: 1.32rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+/* TAGS: Fixed hover behavior (no link mimicry) */
+.tag {
+  font-size: 0.74rem;
+  font-weight: 500;
+  background: var(--accent-light);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  padding: 0.22rem 0.6rem;
+  border-radius: var(--radius-md);
+  letter-spacing: 0.01em;
+  transition: var(--transition);
+  cursor: default;
+  /* Explicitly non-interactive */
+  user-select: none;
+}
+
+.tag:hover {
+  background: var(--bg-page);
+  border-color: var(--border-soft);
+  color: var(--text-primary);
+  /* Removed transform & dramatic color shifts */
+}
+
+.card-desc {
+  font-size: 0.96rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+  background: linear-gradient(180deg, #F4F7F9 0%, #EDF1F4 100%);
+  border-top: 1px solid var(--border);
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+  margin-top: auto;
+}
+
+footer p {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  margin: 0.25rem 0;
+  letter-spacing: 0.01em;
+}
+
+footer p:first-child {
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--accent-border);
+  transition: var(--transition);
+}
+
+footer a:hover {
+  color: var(--accent-hover);
+  border-bottom-color: var(--accent-hover);
+}
+
+/* =========================================
+   RESPONSIVE & ACCESSIBILITY
+   ========================================= */
+@media (max-width: 720px) {
+
+  header,
+  main,
+  footer {
+    padding: var(--space-lg) var(--space-sm);
+  }
+
+  .project-card {
+    padding: var(--space-md);
+  }
+
+  .project-title {
+    font-size: 1.18rem;
+  }
+
+  .header-desc {
+    font-size: 0.98rem;
+  }
+
+  .header-hint {
+    font-size: 0.75rem;
+  }
+
+  .project-card::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    transform: none !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-md);
+}
