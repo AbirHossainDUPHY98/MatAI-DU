@@ -1,0 +1,43 @@
+&CONTROL
+  calculation = 'md'
+  title       = 'InSn 2+2 Liquid BOMD Test'
+  restart_mode= 'from_scratch'
+  nstep       = 50
+  iprint      = 10
+  dt          = 2.0
+  outdir      = './out'
+  prefix      = 'insn_test'
+  pseudo_dir  = './pseudos/'
+  tprnfor     = .true.
+/
+&SYSTEM
+  ibrav       = 1
+  celldm(1)   = 20.0
+  nat         = 4
+  ntyp        = 2
+  ecutwfc     = 30.0
+  ecutrho     = 120.0
+  occupations = 'smearing'
+  smearing    = 'mv'
+  degauss     = 0.02
+  nosym       = .true.
+/
+&ELECTRONS
+  conv_thr         = 1.0d-6
+  electron_maxstep = 80
+  mixing_beta      = 0.7
+/
+&IONS
+  ion_dynamics     = 'verlet'
+  ion_temperature  = 'rescale-v'
+  tempw            = 500.0
+/
+ATOMIC_SPECIES
+  In  114.82  In.pbe-dn-kjpaw_psl.1.0.0.UPF
+  Sn  118.71  Sn.pbe-dn-kjpaw_psl.1.0.0.UPF
+ATOMIC_POSITIONS {angstrom}
+  In  0.00  0.00  0.00
+  In  3.50  3.50  0.00
+  Sn  1.75  0.00  3.50
+  Sn  0.00  1.75  3.50
+K_POINTS {gamma}
