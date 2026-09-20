@@ -3,9 +3,9 @@ This project is to build and improvise on a Graph Neural Network architecture ba
 - [x] Training the first model.  
 - [x] Deep Neural Network Basics.  
 - [x] Training GNN models.
-- [ ] Imagine the version 1.0 of the model.
-- [ ] Iterations.
+- [x] Imagine the version 1.0 of the model.
+- [x] Iterations.
 - [ ] Final Model to deploy. 
-- [ ] ML Ops + Interactive UI. 
+- [ ] Operations & Deployment.
 - [ ] Paper Publication. 
 - [ ] Open-Sourcing the product. 
